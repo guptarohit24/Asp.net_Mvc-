@@ -1,0 +1,30 @@
+﻿@model List<Asp_web_mvc.Models.ModelClass>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<table class="table">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Company</th>
+        <th>Gender</th>
+        <th>Salary</th>
+    </tr>
+
+   @foreach (var item in Model)
+   {
+<tr>
+    <td>@item.Id</td>
+    <td>@item.Name</td>
+    <td>@item.Email</td>
+    <td>@item.Company</td>
+    <td>@item.Gender</td>
+    <td>@item.Salary</td>
+
+    <td><a href="@Url.Action("Edit","Home", new { item.Id})" class="btn btn-success">Edit</a></td>
+    <td><a href="@Url.Action("Delete","Home", new { item.Id})" class="btn btn-danger">Delete</a></td>
+ </tr>
+   }
+</table>
